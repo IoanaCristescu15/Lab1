@@ -77,6 +77,8 @@ int main(int argc, char* argv[]) {
   vector<int> studentID;
   vector<int> year;
   string currentString; //Current line being read from input file, if any
+
+
   //Loop through each line of input file to access each input line
   //Accessing each input line to separate string by spacing,
   //then input to respective vectors
@@ -91,26 +93,30 @@ int main(int argc, char* argv[]) {
     stringstream tempReader(currentString);
     while(getline(tempReader, currInputField, ' ')){
       if (fieldCount==0){
-        currFirstName = currInputField;
+        //currFirstName = currInputField;
+        firstNames.push_back(currInputField);
         fieldCount++;
       }
       else if (fieldCount==1){
-        currLastName = currInputField;
+        //currLastName = currInputField;
+        lastNames.push_back(currInputField);
         fieldCount++;
       }
       else if (fieldCount==2){
-        currStudentID = stoi(currInputField);
+        //currStudentID = stoi(currInputField);
+        studentID.push_back(stoi(currInputField));
         fieldCount++;
       }
       else if (fieldCount==3){
-        currYear = stoi(currInputField);
+        //currYear = stoi(currInputField);
+        year.push_back(stoi(currInputField));
         fieldCount++;
       }
     }
-    firstNames.push_back(currFirstName);
-    lastNames.push_back(currLastName);
-    studentID.push_back(currStudentID);
-    year.push_back(currYear);
+    //firstNames.push_back(currFirstName);
+    //lastNames.push_back(currLastName);
+    //studentID.push_back(currStudentID);
+    //year.push_back(currYear);
   }
   infile.close();
 
@@ -132,19 +138,20 @@ int main(int argc, char* argv[]) {
     error("Unable to open output file named ", argv[2]);
   }
   for (int i=firstNames.size()-1; i>=0; i--){
-    outfile << firstNames.at(i) + '\t';
+    outfile << firstNames.at(i) << '\t';
   }
-  outfile << '\n';
+  outfile << endl;
   for (int i=lastNames.size(); i>=0; i--){
-    outfile << lastNames.at(i) + '\t';
+    outfile << lastNames.at(i) << '\t';
   }
-  outfile << '\n';
+  outfile << endl;
   for (int i=studentID.size(); i>=0; i--){
-    outfile << studentID.at(i) + '\t';
+    outfile << studentID.at(i) << '\t';
   }
-  outfile << '\n';
+  outfile << endl;
   for (int i=year.size(); i>=0; i--){
-    outfile << year.at(i) + '\t';
+    outfile << year.at(i) << '\t';
   }
   outfile.close();
+  return 1; //is this needed?
 }
