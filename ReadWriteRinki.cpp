@@ -70,13 +70,13 @@ int main(int argc, char* argv[]) {
   if (!infile){
     error("Unable to open input file named ", argv[1]);
   }
+
   //Vectors for fields of input file
   vector<string> firstNames;
   vector<string> lastNames;
   vector<int> studentID;
   vector<int> year;
   string currentString; //Current line being read from input file, if any
-
   //Loop through each line of input file to access each input line
   //Accessing each input line to separate string by spacing,
   //then input to respective vectors
@@ -112,14 +112,39 @@ int main(int argc, char* argv[]) {
     studentID.push_back(currStudentID);
     year.push_back(currYear);
   }
-
   infile.close();
 
   //START ON OUTPUT file
   //Put first line of output has first names in reverse order, separated by tab
   //Put second line of output has last names in reverse order, separated by tab
   //Reverse all arrays when accessing then put them in one line tab separated.
+  /*
+  vector<string> firstNames;
+  vector<string> lastNames;
+  vector<int> studentID;
+  vector<int> year;
+  ^^^ Note names of vectors
+   */
   //add error printing
   //open and close output file.
-
+  ofstream outfile (argv[2]);
+  if (!outfile){
+    error("Unable to open output file named ", argv[2]);
+  }
+  for (int i=firstNames.size()-1; i>=0; i--){
+    outfile << firstNames.at(i) + '\t';
+  }
+  outfile << '\n';
+  for (int i=lastNames.size(); i>=0; i--){
+    outfile << lastNames.at(i) + '\t';
+  }
+  outfile << '\n';
+  for (int i=studentID.size(); i>=0; i--){
+    outfile << studentID.at(i) + '\t';
+  }
+  outfile << '\n';
+  for (int i=year.size(); i>=0; i--){
+    outfile << year.at(i) + '\t';
+  }
+  outfile.close();
 }
