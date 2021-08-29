@@ -26,3 +26,9 @@ We tested the following cases on our code:
 
 - Execute with missing fields in input file (ie. FirstName LastName studentID)
   * Resulted in output file skipping the incorrect lines
+
+- Execute with more than 4 fields on one line in the input file (ie. FirstName1 LastName1 studentId1 yearOfStudy1 FirstName2 LastName2 studentId2 yearOfStudy2)
+  * Resulted in error printing about bad input file formatting
+  
+- Execute with integer fields followed by a string with no space in between in the input file (ie. new equal 1111125 10ff)
+  * Resulted in error printing about bad input file formatting
