@@ -1,0 +1,28 @@
+We tested the following cases on our code:
+
+- Execute with no input AND no output command line arguments
+  * Resulted in error printing to terminal
+
+- Execute with no input OR no output command line arguments
+  * Resulted in error printing to terminal
+
+- Execute with nonexistent input file name
+  * Resulted in error printing to terminal
+
+- Execute with nonexistent output file name
+  * Creates an output file with the given name and intended output
+
+- Execute with no lines on input file in correct format
+  * Output file has no lines
+
+- Execute with 1 or more lines on input file in correct format
+  * Output file has intended output
+
+- Execute with empty lines in between multiple input lines in correct format
+  * Output file has intended output, no empty columns
+
+- Execute with string fields as ints OR int fields as strings
+  * Resulted in error printing about bad input file formatting
+
+- Execute with missing fields in input file (ie. FirstName LastName studentID)
+  * Resulted in output file skipping the incorrect lines
