@@ -18,7 +18,7 @@ Documentation:
 - For reading the input file line by line, in order to tokenize the input, we tried using the
 strtok function (no exterior sourse as Ioana learned it in high school). However, we discovered that this function
 would only work with character arrays that contain strings. Then we learned about the standard stream istringstream
-from the following sourse: https://stackoverflow.com/questions/57409206/how-to-fix-no-matching-function-for-call-to-strtok".
+from the following source: https://stackoverflow.com/questions/57409206/how-to-fix-no-matching-function-for-call-to-strtok".
 - stoi fuunction: https://www.cplusplus.com/reference/string/stoi/ 
 */
 
